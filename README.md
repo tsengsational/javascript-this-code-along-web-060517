@@ -1,6 +1,6 @@
 # JavaScript this Code-Along
 
-## Overview 
+## Overview
 
 In this lesson we'll be exploring the ways we can manipulate `this` to use functions in new ways.
 
@@ -9,7 +9,7 @@ In this lesson we'll be exploring the ways we can manipulate `this` to use funct
 1. Use `this` with functions in JavaScript
 2. Use `call()` and `apply()` to invoke a function with an explicit value for `this`
 4. Explain the difference between `call()` and `apply()` in the way you pass arguments to the target function.
-5. Use `bind()` to execute functions asynchronously 
+5. Use `bind()` to execute functions asynchronously
 
 ## Introduction
 
@@ -429,10 +429,12 @@ function visitTable() {
 Then we'll have a `Customer` object that we'll use to represent new customers when they come in.
 
 ```js
-function Customer(name, tableNumber) {
-  this.name = name;
-  this.tableNumber = tableNumber;
+function deliverFood(customer, table) {
+  console.log("Delivering " + this.name + " to " + customer + " at table " + table);
 }
+
+deliverFood.call(gc, "Terry", "4");
+deliverFood.apply(pbj, ["Jesse", "15"]);
 ```
 
 Now when a new customer comes in, we want to create a new customer object, then set up a timer for the server to come after they've had enough time to look at the menu.
